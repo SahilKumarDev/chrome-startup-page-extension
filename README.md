@@ -2,7 +2,7 @@
 
 A modern, minimalist startup page featuring a unique death clock visualization, daily goals, finance tracking, and productivity tools. Perfect for replacing your browser's default new tab page with a meaningful, productivity-focused dashboard.
 
-![image](https://github.com/user-attachments/assets/c9e25688-d53c-42a8-bdd3-8e6139c9177d)
+![image](./public/banner.png)
 
 ## 🌟 Features
 
