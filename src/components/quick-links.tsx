@@ -10,7 +10,6 @@ import {
 } from "./ui/dialog";
 import { Button } from "./ui/button";
 
-// Define types for our shortcuts
 interface Shortcut {
   id: string;
   name: string;
@@ -28,7 +27,6 @@ const defaultShortcuts: Shortcut[] = [
 ];
 
 const QuickLinks: React.FC = () => {
-  // State for shortcuts, form visibility, and form inputs
   const [shortcuts, setShortcuts] = useState<Shortcut[]>([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [newShortcut, setNewShortcut] = useState<{
@@ -41,7 +39,6 @@ const QuickLinks: React.FC = () => {
     iconUrl: "",
   });
 
-  // Extract domain for favicon service
   const getDomainFromUrl = (url: string): string => {
     try {
       // Add protocol if missing
@@ -52,12 +49,10 @@ const QuickLinks: React.FC = () => {
       const urlObj = new URL(url);
       return urlObj.hostname;
     } catch {
-      // If URL parsing fails, return the original URL
       return url.replace(/^https?:\/\//i, "").split("/")[0];
     }
   };
 
-  // Get favicon URL using Google's favicon service
   const getFaviconUrl = (url: string): string => {
     const domain = getDomainFromUrl(url);
     return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
@@ -73,7 +68,6 @@ const QuickLinks: React.FC = () => {
     }
   }, []);
 
-  // Save shortcuts to localStorage whenever they change
   useEffect(() => {
     if (shortcuts.length > 0) {
       localStorage.setItem("quickLinks", JSON.stringify(shortcuts));

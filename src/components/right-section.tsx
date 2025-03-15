@@ -345,7 +345,7 @@ const RightSection: React.FC = () => {
             In
           </button>
         </div>
-        <div className="countdown-timer"></div>
+        <div className="countdown-timer" id="countdown-timer"></div>
       </div>
     </div>
   );

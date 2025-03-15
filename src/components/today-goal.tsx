@@ -54,7 +54,7 @@ const TodayGoal: React.FC = () => {
   return (
     <div className="goal-section">
       <div className="goal-header">
-        <h3>Today's Goal :</h3>
+        <h3 className="font-bold">Today's Goal :</h3>
       </div>
       <div className="goal-content">
         <input

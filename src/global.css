@@ -31,7 +31,7 @@ body {
   overflow: hidden;
   font-family: 'Plus Jakarta Sans', system-ui;
   background-color: black;
-  background-image: 
+  background-image:
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 60%),
     radial-gradient(circle at bottom left, rgba(12, 74, 110, 0.1), transparent 60%);
   color: var(--text-primary);
@@ -250,7 +250,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity:1;
+  opacity: 1;
 }
 
 .clock-title {
@@ -271,7 +271,7 @@ body {
   font-size: 3rem;
   color: white;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5),
-               0 0 20px rgba(255, 255, 255, 0.3);
+    0 0 20px rgba(255, 255, 255, 0.3);
   margin: 0;
   letter-spacing: 0;
 }
@@ -333,14 +333,14 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
+
   .left-section {
     height: auto;
     overflow: visible;
     padding: 2rem 0.5rem;
     order: 1;
   }
-  
+
   .right-section {
     height: auto;
     min-height: auto;
@@ -349,7 +349,7 @@ body {
     margin-top: 2rem;
     position: relative;
   }
-  
+
   .clock-container {
     transform: scale(0.9);
     transform-origin: bottom center;
@@ -368,7 +368,7 @@ body {
     left: 50%;
     transform: translateX(-20%) rotate(100deg);
   }
-  
+
   .countdown-timer {
     position: fixed;
     bottom: 1rem;
@@ -391,24 +391,24 @@ body {
   .greeting-section h1 {
     font-size: 1.8rem;
   }
-  
+
   .quote-text {
     font-size: 1rem;
   }
-  
+
   .balance-amount {
     font-size: 1.75rem;
   }
-  
+
   .countdown-timer {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
-  
+
   .finance-section {
     margin-bottom: 1rem;
   }
-  
+
   .clock-container {
     transform: scale(0.8);
     margin-bottom: 2rem;
@@ -423,7 +423,7 @@ body {
   .container {
     padding: 0 0.5rem;
   }
-  
+
   .left-section {
     padding: 1rem 0.5rem;
   }
@@ -431,20 +431,20 @@ body {
   .greeting-section h1 {
     font-size: 1.5rem;
   }
-  
+
   .quote-text {
     font-size: 0.9rem;
   }
-  
+
   .balance-amount {
     font-size: 1.5rem;
   }
-  
+
   .clock-container {
     transform: scale(0.7);
     margin-bottom: 1rem;
   }
-  
+
   .clock-title .title-text {
     font-size: 2.2rem;
   }
@@ -474,21 +474,19 @@ body {
   inset: 1px;
   margin: auto;
   background-color: rgba(0 0 0 / 0.9);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 48%,
-    50% 48%,
-    50% 52%,
-    100% 52%,
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(0 0,
+      100% 0,
+      100% 48%,
+      50% 48%,
+      50% 52%,
+      100% 52%,
+      100% 100%,
+      0 100%);
   border-radius: 50%;
   z-index: 20;
 }
 
-.clock > div {
+.clock>div {
   position: absolute;
   inset: 0;
   margin: auto;
@@ -501,37 +499,43 @@ body {
 }
 
 /* years */
-.clock > div:nth-of-type(1) {
+.clock>div:nth-of-type(1) {
   --clock-d: calc(var(--clock-size) - 5px);
   --f-size: 0.65rem;
 }
+
 /* seconds */
-.clock > div:nth-of-type(2) {
+.clock>div:nth-of-type(2) {
   --clock-d: calc(var(--clock-size) - 65px);
   --f-size: 0.65rem;
 }
+
 /* minutes */
-.clock > div:nth-child(3) {
+.clock>div:nth-child(3) {
   --clock-d: calc(var(--clock-size) - 115px);
   --f-size: 0.65rem;
 }
+
 /* hours */
-.clock > div:nth-child(4) {
+.clock>div:nth-child(4) {
   --clock-d: calc(var(--clock-size) - 165px);
   --f-size: 0.65rem;
 }
+
 /* day numbers */
-.clock > div:nth-child(5) {
+.clock>div:nth-child(5) {
   --clock-d: calc(var(--clock-size) - 245px);
   --f-size: 0.65rem;
 }
+
 /* month names */
-.clock > div:nth-child(6) {
+.clock>div:nth-child(6) {
   --clock-d: calc(var(--clock-size) - 305px);
   --f-size: 0.6rem;
 }
+
 /* day names */
-.clock > div:nth-child(7) {
+.clock>div:nth-child(7) {
   --clock-d: calc(var(--clock-size) - 365px);
   --f-size: 0.6rem;
 }
@@ -544,7 +548,8 @@ body {
   border-radius: 50%;
   transition: 300ms linear;
 }
-.clock-face > * {
+
+.clock-face>* {
   position: absolute;
   transform-origin: center;
   white-space: nowrap;
@@ -560,7 +565,7 @@ body {
   }
 }
 
-.clock > .current-lang-display {
+.clock>.current-lang-display {
   position: absolute;
   inset: 0;
   margin: auto;
@@ -578,12 +583,14 @@ body {
   transition: 300ms ease-in-out;
   font-size: 1.1rem;
   outline: none;
-  
+
 }
+
 /* time separators */
 .current-lang-display::before {
   display: none;
 }
+
 .current-lang-display::after {
   display: none;
 }
@@ -603,18 +610,23 @@ dialog {
     opacity: 0;
     scale: 0;
   }
+
   transition: opacity 500ms ease-in,
-    scale 500ms cubic-bezier(0.28, -0.55, 0.27, 1.55);
+  scale 500ms cubic-bezier(0.28, -0.55, 0.27, 1.55);
 }
+
 /* Backdrop styling */
 dialog[open]::backdrop {
   background-color: rgba(from black r g b / 0.5);
   backdrop-filter: blur(3px);
   opacity: 1;
+
   @starting-style {
     opacity: 0;
   }
-  transition: opacity 1000ms ease-in; /* this doesn't appear to be working */
+
+  transition: opacity 1000ms ease-in;
+  /* this doesn't appear to be working */
 }
 
 
@@ -634,6 +646,7 @@ dialog .btn-dialog-close {
   cursor: pointer;
   transition: rotate 300ms ease-in-out;
   z-index: 11;
+
   &:focus-visible,
   &:hover {
     rotate: 90deg;
@@ -648,7 +661,8 @@ dialog .btn-dialog-close {
   aspect-ratio: 1/1;
   overflow: hidden;
 }
-.language-options > label {
+
+.language-options>label {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: pointer;
@@ -673,6 +687,7 @@ dialog .btn-dialog-close {
     z-index: 2;
   }
 }
+
 .language-title {
   position: absolute;
   left: 50%;
@@ -681,16 +696,20 @@ dialog .btn-dialog-close {
   pointer-events: none;
   color: white;
   font-size: 1.2rem;
+
   @starting-style {
     opacity: 0;
   }
+
   transition: opacity 300ms ease-in-out;
 }
+
 .flag-icon {
   font-size: 1.5rem;
   display: grid;
   place-content: center;
 }
+
 .language-options input[type="radio"] {
   position: absolute;
   width: 1px;
@@ -771,8 +790,10 @@ dialog .btn-dialog-close {
 
 .search-engine-select {
   position: relative;
-  /* z-index: 10; */
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-engine-btn {
@@ -788,7 +809,7 @@ dialog .btn-dialog-close {
   cursor: pointer;
   color: var(--text-primary);
   height: 100%;
-  min-width: 75px;
+  padding-right: 10px;
 }
 
 .search-engine-btn:hover {
@@ -809,7 +830,7 @@ dialog .btn-dialog-close {
 #search-input {
   flex: 1;
   height: 100%;
-  padding: 0 1.75rem 0 0.6rem;
+  padding-left: 0rem;
   font-size: 0.8rem;
   background: transparent;
   border: none;
@@ -817,11 +838,7 @@ dialog .btn-dialog-close {
   font-weight: 500;
   outline: none;
   transition: all 0.3s ease;
-}
-
-#search-input:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  padding-right: 2.5rem;
 }
 
 #search-button {
@@ -841,10 +858,6 @@ dialog .btn-dialog-close {
   justify-content: center;
 }
 
-#search-button:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.1);
-}
 
 .search-engine-dropdown {
   position: absolute;
@@ -918,14 +931,14 @@ dialog .btn-dialog-close {
   backdrop-filter: var(--card-blur);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .links-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 .quick-link {
@@ -950,25 +963,25 @@ dialog .btn-dialog-close {
 
 .link-tooltip {
   position: absolute;
-  bottom: -2.5rem;
+  bottom: -2rem;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.4rem 0.75rem;
+  padding: 0.2rem 0.5rem;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: var(--card-blur);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   border-radius: 0.5rem;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
-  /* z-index: 9999; */
   font-weight: 500;
   letter-spacing: 0.01em;
+  line-clamp: 1;
 }
 
 .quick-link:hover {
@@ -1062,13 +1075,12 @@ dialog .btn-dialog-close {
 .goal-section {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
   border-radius: 1rem;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1rem;
   backdrop-filter: var(--card-blur);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   transition: all 0.3s ease;
   position: relative;
-  /* z-index: 650; */
   overflow: hidden;
   margin: 1rem 0;
   display: flex;
@@ -1094,7 +1106,7 @@ dialog .btn-dialog-close {
 
 .goal-header h3 {
   font-family: 'Gistesy', cursive;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   color: var(--text-primary);
   margin: 0;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
@@ -1142,20 +1154,25 @@ dialog .btn-dialog-close {
   pointer-events: none;
 }
 
-.goal-input.saving ~ .goal-content::after {
+.goal-input.saving~.goal-content::after {
   content: 'Saving...';
   opacity: 1;
 }
 
-.goal-input.saved ~ .goal-content::after {
+.goal-input.saved~.goal-content::after {
   content: '✓';
   opacity: 1;
   animation: fadeOut 2s forwards 1s;
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 /* Add padding-right to input when saving/saved to prevent text overlap */
