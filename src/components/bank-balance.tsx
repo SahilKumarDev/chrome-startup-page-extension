@@ -71,7 +71,7 @@ const BankBalance: React.FC<BankBalanceProps> = ({
 
     setIsEditing(false);
   };
-
+ 
   const handleBalanceChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ): void => {

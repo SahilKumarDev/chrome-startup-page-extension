@@ -569,7 +569,7 @@ body {
   position: absolute;
   inset: 0;
   margin: auto;
-  z-index: 100;
+  z-index: 20;
   display: grid;
   place-content: center;
   background-color: var(--clock-clr);
