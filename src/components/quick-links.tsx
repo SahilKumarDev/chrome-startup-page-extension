@@ -18,17 +18,16 @@ interface Shortcut {
   iconUrl: string;
 }
 
-const QuickLinks: React.FC = () => {
-  // Default shortcuts
-  const defaultShortcuts: Shortcut[] = [
-    {
-      id: "1",
-      name: "YouTube",
-      url: "https://youtube.com",
-      iconUrl: "https://www.youtube.com/favicon.ico",
-    },
-  ];
+const defaultShortcuts: Shortcut[] = [
+  {
+    id: "1",
+    name: "YouTube",
+    url: "https://youtube.com",
+    iconUrl: "https://www.youtube.com/favicon.ico",
+  },
+];
 
+const QuickLinks: React.FC = () => {
   // State for shortcuts, form visibility, and form inputs
   const [shortcuts, setShortcuts] = useState<Shortcut[]>([]);
   const [dialogOpen, setDialogOpen] = useState(false);

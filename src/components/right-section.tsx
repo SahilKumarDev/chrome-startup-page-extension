@@ -7,23 +7,7 @@ const RightSection: React.FC = () => {
   useEffect(() => {
     drawClockFaces();
     rotateClockFaces();
-
-    // Set current language display
-    const currentLangDisplay = document.getElementById("current-lang");
-    const locale = getLocale();
-    const languageFlags = getLanguageFlags();
-    const currentLang = languageFlags.find((lang) => lang.code === locale);
-
-    if (currentLangDisplay && currentLang) {
-      currentLangDisplay.textContent = currentLang.flag;
-      currentLangDisplay.title = currentLang.name;
-    }
-
-    // Setup event listener for language button
-    currentLangDisplay?.addEventListener("click", () => {
-      document.getElementById("language-dialog")?.showModal();
-    });
-  }, []);
+  });
 
   function getLocale(): string {
     const languageFlags = getLanguageFlags();
@@ -130,7 +114,7 @@ const RightSection: React.FC = () => {
       const RADIUS = clockFaceWidth / 2 - 20;
       const center = clockFaceWidth / 2;
 
-      let valueSet;
+      let valueSet: (string | number)[];
       let currentValue;
 
       switch (clockType) {
@@ -180,7 +164,6 @@ const RightSection: React.FC = () => {
         const element = document.createElement("span");
         element.classList.add("number");
 
-        // Add 'dead' class to years that are past the death year
         if (
           clockType === "years" &&
           deathYear &&
@@ -204,12 +187,16 @@ const RightSection: React.FC = () => {
         currentIndex = currentWeekday;
       } else {
         currentIndex = valueSet.indexOf(
-          typeof valueSet[0] === "string" ? String(currentValue) : currentValue
+          typeof valueSet[0] === "string"
+            ? String(currentValue)
+            : Number(currentValue)
         );
       }
 
       const rotationAngle = -((currentIndex / numbers) * 360);
-      clockFace.style.transform = `rotate(${rotationAngle}deg)`;
+      (
+        clockFace as HTMLElement
+      ).style.transform = `rotate(${rotationAngle}deg)`;
     });
   }
 
@@ -263,22 +250,19 @@ const RightSection: React.FC = () => {
 
         const targetAngle = (360 / totalNumbers) * currentValue;
 
-        // Retrieve the last angle for this clock face
         const clockId = clockFace.id || clockType || "";
         const lastAngle = lastAngles[clockId] || 0;
 
-        // Adjust for shortest rotation direction
         const delta = targetAngle - lastAngle;
-        const shortestDelta = ((delta + 540) % 360) - 180; // Normalize between -180 and 180
+        const shortestDelta = ((delta + 540) % 360) - 180;
 
-        // update the clock face rotation
         const newAngle = lastAngle + shortestDelta;
-        clockFace.style.transform = `rotate(${newAngle * -1}deg)`;
+        (clockFace as HTMLElement).style.transform = `rotate(${
+          newAngle * -1
+        }deg)`;
 
-        // store the new angle
         lastAngles[clockId] = newAngle;
 
-        // "active" class
         const numbers = clockFace.querySelectorAll(".number");
         numbers.forEach((number, index) => {
           if (index === currentValue) {
@@ -288,7 +272,6 @@ const RightSection: React.FC = () => {
           }
         });
       });
-      // request next frame
       requestAnimationFrame(updateRotations);
     }
 
@@ -297,7 +280,6 @@ const RightSection: React.FC = () => {
 
   return (
     <div className="right-section" ref={clockContainerRef}>
-      {/* Clock section */}
       <div className="clock-container">
         <div className="clock-title">
           <span className="title-text">Death Clock</span>
@@ -360,10 +342,10 @@ const RightSection: React.FC = () => {
             id="current-lang"
             className="current-lang-display"
           >
-            en
+            In
           </button>
         </div>
-        <div id="countdown-timer" className="countdown-timer"></div>
+        <div className="countdown-timer"></div>
       </div>
     </div>
   );

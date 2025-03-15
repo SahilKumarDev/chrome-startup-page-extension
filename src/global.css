@@ -574,14 +574,11 @@ body {
   width: 34px;
   height: 34px;
   aspect-ratio: 1/1;
-  cursor: pointer;
+  cursor: none;
   transition: 300ms ease-in-out;
   font-size: 1.1rem;
   outline: none;
-  &:focus-visible,
-  &:hover {
-    background-color: white;
-  }
+  
 }
 /* time separators */
 .current-lang-display::before {
@@ -720,29 +717,29 @@ dialog .btn-dialog-close {
 }
 
 .death-year-input-container input {
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  width: 200px;
+  padding: 10px 1rem;
+  font-size: 1rem;
+  width: 250px;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .death-year-input-container button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background: var(--clock-clr);
-  color: white;
+  background: white;
+  color: black;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .death-year-input-container button:hover {
-  background: rgb(8, 47, 73);
+  background: rgb(201, 201, 201);
 }
 
 .clock-face .number.dead {
