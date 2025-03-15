@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Death Clock Startup Page",
-  "version": "0.1",
-  "description": "Death Clock Startup Page",
+  "name": "Chrome Startup Page Extension",
+  "version": "0.2",
+  "description": "Chrome Startup Page Extension is a modern, minimalist new tab replacement designed for productivity. It features a death clock visualization, daily goals, finance tracking, quick links, and smart search. With multi-language support, dynamic greetings, and daily quotes, it transforms your browser into a meaningful and efficient workspace. 🚀",
   "chrome_url_overrides": {
     "newtab": "index.html"
   }
