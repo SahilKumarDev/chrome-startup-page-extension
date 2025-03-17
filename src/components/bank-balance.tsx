@@ -44,11 +44,15 @@ const BankBalance: React.FC<BankBalanceProps> = ({
     );
   };
 
+  const parseBalance = (balanceText: string): number => {
+    return parseFloat(balanceText.replace(/[₹,]/g, "")) || 0;
+  };
+
   const applyColorCoding = (balanceText: string): void => {
     const balanceElement = document.getElementById("balance-amount");
     if (!balanceElement) return;
 
-    const amount = parseFloat(balanceText.replace(/[₹,]/g, ""));
+    const amount = parseBalance(balanceText);
 
     if (amount < 10000) {
       balanceElement.style.color = "#ff4d4d";
@@ -62,16 +66,25 @@ const BankBalance: React.FC<BankBalanceProps> = ({
   const handleBalanceUpdate = (): void => {
     const now = new Date();
     const formattedDate = now.toLocaleString();
+    
+    // Parse the current balance and format it properly
+    const amount = parseBalance(balance);
+    const formattedBalance = formatBalance(amount);
+    
+    // Update the state with properly formatted balance
+    setBalance(formattedBalance);
     setLastUpdated(`Last updated: ${formattedDate}`);
 
-    applyColorCoding(balance);
+    // Apply color coding with the formatted balance
+    applyColorCoding(formattedBalance);
 
-    localStorage.setItem("balance", balance);
+    // Store the formatted balance in localStorage
+    localStorage.setItem("balance", formattedBalance);
     localStorage.setItem("lastUpdated", formattedDate);
 
     setIsEditing(false);
   };
- 
+
   const handleBalanceChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ): void => {
@@ -81,18 +94,11 @@ const BankBalance: React.FC<BankBalanceProps> = ({
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter") {
       e.preventDefault();
-
-      const amount = parseFloat(balance.replace(/[₹,]/g, "")) || 0;
-      setBalance(formatBalance(amount));
-
       handleBalanceUpdate();
     }
   };
 
   const handleBlur = (): void => {
-    const amount = parseFloat(balance.replace(/[₹,]/g, "")) || 0;
-    setBalance(formatBalance(amount));
-
     handleBalanceUpdate();
   };
 
