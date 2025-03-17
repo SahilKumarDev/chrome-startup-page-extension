@@ -66,19 +66,15 @@ const BankBalance: React.FC<BankBalanceProps> = ({
   const handleBalanceUpdate = (): void => {
     const now = new Date();
     const formattedDate = now.toLocaleString();
-    
-    // Parse the current balance and format it properly
+
     const amount = parseBalance(balance);
     const formattedBalance = formatBalance(amount);
-    
-    // Update the state with properly formatted balance
+
     setBalance(formattedBalance);
     setLastUpdated(`Last updated: ${formattedDate}`);
 
-    // Apply color coding with the formatted balance
     applyColorCoding(formattedBalance);
 
-    // Store the formatted balance in localStorage
     localStorage.setItem("balance", formattedBalance);
     localStorage.setItem("lastUpdated", formattedDate);
 
